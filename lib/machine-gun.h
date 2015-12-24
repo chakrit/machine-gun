@@ -5,6 +5,9 @@
 /* Start of preamble from import "C" comments.  */
 
 
+#line 3 "/Users/chakrit/Documents/machine-gun/src/bridge.go"
+ #include <stdlib.h>
+
 
 
 /* End of preamble from import "C" comments.  */
@@ -50,7 +53,11 @@ extern "C" {
 #endif
 
 
-extern char* Hello(char* p0);
+extern GoInt Free(void* p0);
+
+extern GoInt Hello(char* p0, char** p1);
+
+extern GoInt HelloArray(char** p0, GoInt p1, char*** p2, GoInt* p3);
 
 #ifdef __cplusplus
 }
