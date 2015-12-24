@@ -9,8 +9,12 @@ end
 
 task default: [:build, :check, :test]
 
+task :test_go do
+  puts `go test -v -timeout 1s src/*.go`
+end
+
 task :check do
-  # Checks for any ruby errors before Bundler eating them up.
+  # Checks for any ruby errors before Bundler eats them up.
   require_relative './lib/machine-gun.rb'
   puts 'Binding looks OK.'
   puts
