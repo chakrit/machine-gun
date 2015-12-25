@@ -1,12 +1,7 @@
 require 'support'
 
 module MachineGun
-  class CommandsTest < MiniTest::Test
-    def teardown
-      super
-      Spy.teardown
-    end
-
+  class CommandsTest < MachineGunTest
     def test_ping
       assert_send 'ping', { hello: "world" }, { "pong" => "result" } do
         assert_equal "result", Commands.ping(hello: "world")
@@ -26,15 +21,7 @@ module MachineGun
     end
 
     def test_request
-      payload = {
-        method: :get,
-        url: "https://api.example.com/v1",
-        headers: {
-          "Content-Type" => "application/json",
-          "Accept" => "application/json"
-        },
-        payload: "{\"hello\":\"world\"}"
-      }
+      payload = TEST_REQUEST_COMMAND
 
       assert_send 'request', payload, { "id" => 1 } do
         result = Commands.request(:get, payload[:url], payload[:headers], payload[:payload])
@@ -46,16 +33,6 @@ module MachineGun
       assert_send 'response', { id: 1337 }, nil do
         Commands.response(1337)
       end
-    end
-
-    private
-
-    def assert_send(cmd, input, output)
-      Spy.on(Bridge, :command).and_return(output)
-      result = yield
-      assert_received_with Bridge, :command, cmd, input
-
-      result
     end
   end
 end

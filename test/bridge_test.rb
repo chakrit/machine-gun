@@ -1,7 +1,7 @@
 require 'support'
 
 module MachineGun
-  class BridgeTest < MiniTest::Test
+  class BridgeTest < MachineGunTest
     def test_command
       result = Bridge.command("ping", hello: "world")
       refute_nil result
