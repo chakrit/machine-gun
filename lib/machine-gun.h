@@ -55,9 +55,7 @@ extern "C" {
 
 extern GoInt Free(void* p0);
 
-extern GoInt Hello(char* p0, char** p1);
-
-extern GoInt HelloArray(char** p0, GoInt p1, char*** p2, GoInt* p3);
+extern GoInt BridgeCommand(char* p0, char* p1, char** p2);
 
 #ifdef __cplusplus
 }

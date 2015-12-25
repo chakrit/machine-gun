@@ -2,4 +2,9 @@ package main
 
 import "net/http"
 
-type Port chan *http.Response
+type PortData struct {
+	Response *http.Response
+	Error    error
+}
+
+type Port chan *PortData

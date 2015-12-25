@@ -2,21 +2,21 @@ require 'support'
 
 module MachineGun
   class BridgeTest < MiniTest::Test
-    def test_hello
-      result = Bridge.hello("cross FFI boundary")
-      assert_equal "Hello, cross FFI boundary", result
+    def test_command
+      result = Bridge.command("ping", hello: "world")
+      refute_nil result
+      assert_instance_of Hash, result
+      assert_equal "{\"hello\":\"world\"}", result["pong"]
     end
 
-    def test_hello_array
-      inputs = %w(Jack John Jim)
-      outputs = [
-        "Hello, Jack",
-        "Hello, John",
-        "Hello, Jim"
-      ]
+    def test_command_error
+      assert_raises MachineGun::Error do
+        Bridge.command('unimplemented_command', { })
+      end
 
-      result = Bridge.hello_array(%w(Jack John Jim))
-      assert_equal outputs, result
+      assert_raises MachineGun::Error do
+        Bridge.command('ping', nil)
+      end
     end
   end
 end
