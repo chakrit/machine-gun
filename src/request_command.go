@@ -28,7 +28,7 @@ func (cmd *RequestCommand) Execute() (interface{}, error) {
 	go func() {
 		defer close(port)
 		request := &http.Request{
-			Method: cmd.Method,
+			Method: strings.ToUpper(cmd.Method),
 			URL:    reqURL,
 			Header: http.Header(cmd.Headers),
 			Body:   ioutil.NopCloser(strings.NewReader(cmd.Payload)),
