@@ -6,7 +6,7 @@ module MachineGun
     attr_accessor :headers
     attr_accessor :payload
 
-    def initialize(method, url, headers, payload)
+    def initialize(method, url, headers, payload=nil)
       @id = Commands.request(method, url, headers, payload)
       @method = method
     end

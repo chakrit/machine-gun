@@ -17,8 +17,8 @@ module MachineGun
       out_json = out_ptr.read_pointer.read_string.force_encoding('UTF-8')
       Free(out_ptr.read_pointer)
 
-      result = JSON.parse(out_json)
-      if result["error"]
+      result = JSON.load(out_json)
+      if result && result["error"]
         raise Error.new(result["code"], result["error"])
       end
 
