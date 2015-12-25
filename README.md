@@ -39,7 +39,7 @@ responses = [
 ].map { |req| req.response }
 ```
 
-This will first 3 HTTP requests simultaneously in the background (more specifically, in a
+This will fire 3 HTTP requests simultaneously in the background (more specifically, in a
 hidden goroutine). And then waits for the result. This will blocks your ruby Thread only
 for the duration of the longest request.
 
