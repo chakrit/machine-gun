@@ -7,7 +7,7 @@ Rake::TestTask.new do |t|
   t.test_files = FileList["test/**/*_test.rb"]
 end
 
-task default: [:build, :check, :test]
+task default: [:check, :test]
 
 task :go_test do
   puts `go test -v -timeout 1s src/*.go`
@@ -18,9 +18,4 @@ task :check do
   puts '# Checking Ruby bindings'
   require_relative './lib/machine-gun.rb'
   puts
-end
-
-task :build do
-  puts '# Building shared library (machine-gun.so)...'
-  puts `./build-so.sh`
 end
