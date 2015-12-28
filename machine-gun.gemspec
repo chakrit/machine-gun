@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.add_runtime_dependency 'ffi', '~>1.9'
+  s.add_runtime_dependency 'json', '~>1.8'
 
   s.add_development_dependency 'rake', '~>10.4'
   s.add_development_dependency 'pry', '~>0.10'
