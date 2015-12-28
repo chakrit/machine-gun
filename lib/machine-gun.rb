@@ -1,3 +1,4 @@
+require 'machine-gun/os'
 require 'machine-gun/bridge'
 require 'machine-gun/commands'
 require 'machine-gun/request'

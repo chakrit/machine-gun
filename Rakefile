@@ -9,18 +9,18 @@ end
 
 task default: [:build, :check, :test]
 
-task :test_go do
+task :go_test do
   puts `go test -v -timeout 1s src/*.go`
 end
 
 task :check do
   # Checks for any ruby errors before Bundler eats them up.
+  puts '# Checking Ruby bindings'
   require_relative './lib/machine-gun.rb'
-  puts 'Binding looks OK.'
   puts
 end
 
 task :build do
-  puts 'Building shared library (machine-gun.so)...'
-  puts `go build -v -buildmode=c-shared -o lib/machine-gun.so src/*.go`
+  puts '# Building shared library (machine-gun.so)...'
+  puts `./build-so.sh`
 end
