@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    machine-gun (0.1.0)
+    machine-gun (0.2.0)
       ffi (~> 1.9)
       json (~> 1.8)
 
