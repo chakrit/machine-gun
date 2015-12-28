@@ -5,7 +5,12 @@ module MachineGun
   module Bridge
     extend FFI::Library
 
-    ffi_lib "./lib/#{OS.host}/#{OS.arch}/machine-gun.so"
+    def self.lib_path
+      path = "../#{OS.host}/#{OS.arch}/machine-gun.so"
+      File.absolute_path(File.join(File.dirname(__FILE__), path))
+    end
+
+    ffi_lib lib_path
     attach_function :Free, [:pointer], :int
 
     attach_function :BridgeCommand, [:string, :string, :pointer], :int
