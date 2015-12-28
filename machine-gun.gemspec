@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|
   s.name        = 'machine-gun'
-  s.version     = '0.1.0'
+  s.version     = '0.2.0'
   s.date        = '2014-12-24'
   s.summary     = 'Fire HTTP requests like a machine gun.'
   s.description = 'Send multiple HTTP requests simultaneously from a single ruby Thread, powered by goroutines.'
