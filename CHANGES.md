@@ -1,3 +1,7 @@
+# v0.2.1
+
+* Make `machine-gun.so` file lookup relative.
+
 # v0.2.0
 
 * Adds for compiling a linux binary via Docker.
